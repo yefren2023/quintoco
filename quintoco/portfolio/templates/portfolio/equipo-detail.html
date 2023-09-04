@@ -1,0 +1,83 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<!-- inner banner -->
+<section class="inner-banner py-5">
+    <div class="w3l-breadcrumb py-lg-5">
+        <div class="container pt-4 pb-sm-4">
+            <h4 class="inner-text-title pt-5">Nuestro Equipo</h4>
+            <ul class="breadcrumbs-custom-path">
+                <li><a href="{% url 'home' %}">Inicio</a></li>
+                <li class="active"><i class="fas fa-angle-right"></i>Nuestro Equipo</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- //inner banner -->
+
+<section class="w3l-servicesblock pt-lg-5 pt-4 pb-5 mb-lg-5" id="about">
+    <div class="container pb-md-5 pb-4">
+        <div class="row pb-xl-5 align-items-center">
+           
+           
+             
+            <div
+                class="col-lg-6 position-relative home-block-3-left pb-lg-0 pb-5">
+                <div class="position-relative">
+                    <img src="{{ equipo.imageURL }}" alt=""
+                        class="img-fluid radius-image">
+                </div>
+            </div>
+            <div
+                class="col-xl-5 col-lg-6 offset-xl-1 mt-lg-0 mt-5 pt-lg-0 pt-5">
+                <h3 class="title-style">{{ equipo.persona }}</h3>
+             
+                <ul class="mt-4 list-style-lis pt-lg-1">
+                   
+                    {% if equipo.descripcion != null %}
+                     <li><i class="fas fa-check-circle"></i>{{ equipo.descripcion }}</li>
+                     {% endif %}
+                     {% if equipo.descripcion2 != null %}
+                     <li><i class="fas fa-check-circle"></i>{{ equipo.descripcion2 }}</li>
+                     {% endif %}
+                     {% if equipo.descripcion3 != null %}
+                     <li><i class="fas fa-check-circle"></i>{{ equipo.descripcion3 }}</li>
+                     {% endif %}
+                     {% if equipo.descripcion4 != null %}
+                     <li><i class="fas fa-check-circle"></i>{{ equipo.descripcion4 }}</li>
+                     {% endif %}
+                     {% if equipo.descripcion5 != null %}
+                     <li><i class="fas fa-check-circle"></i>{{ equipo.descripcion5 }}</li>
+                     {% endif %}
+                     {% if equipo.descripcion6 != null %}
+                    <li><i class="fas fa-check-circle"></i>{{ equipo.descripcion6 }}</li>
+                    {% endif %}
+                    {% if equipo.descripcion7 != null %}
+                    <li><i class="fas fa-check-circle"></i>{{ equipo.descripcion7 }}</li>
+                    {% endif %}
+                    {% if equipo.descripcion8 != null %}
+                    <li><i class="fas fa-check-circle"></i>{{ equipo.descripcion8 }}</li>
+                    {% endif %}
+                    <li><a href="{% url 'equipo' %}"
+                        class="btn btn-style mt-lg-0 mt-3">Regresar</a>
+                </li>
+                </ul>
+
+               
+                
+            </div>
+
+       
+        </div>
+    </div>
+</section>
+
+<br>
+<br>
+
+
+{% endblock %}

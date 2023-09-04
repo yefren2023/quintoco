@@ -1,0 +1,40 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<!-- inner banner -->
+<section class="inner-banner py-5">
+    <div class="w3l-breadcrumb py-lg-5">
+        <div class="container pt-4 pb-sm-4">
+            <h4 class="inner-text-title pt-5">Blog Details</h4>
+            <ul class="breadcrumbs-custom-path">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li class="active"><i class="fas fa-angle-right"></i>Blog Details</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- //inner banner -->
+
+<section class="w3l-contact py-5" id="contact">
+    <div class="container py-md-5 py-4">
+        <div class="row contact-block">
+
+            <h1 class="text-center mt-5">{{ id.heading }}</h1>
+
+            <h5 class="text-center text-muted mb-5">{{ id.date|date:'F jS Y' }}</h5>
+
+            <p class="text-center mb-5">{{ id.description|safe }}</p>
+
+        
+                
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

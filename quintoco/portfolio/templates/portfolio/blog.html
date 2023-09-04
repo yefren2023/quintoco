@@ -1,0 +1,69 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+ <!-- inner banner -->
+ <section class="inner-banner py-5">
+    <div class="w3l-breadcrumb py-lg-5">
+        <div class="container pt-4 pb-sm-4">
+            <h4 class="inner-text-title pt-5">Blogs</h4>
+            <ul class="breadcrumbs-custom-path">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li class="active"><i class="fas fa-angle-right"></i>Blogs
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- //inner banner -->
+
+<!-- courses section -->
+<div class="w3l-blog-block-5 py-5" id="blog">
+    <div class="container py-md-5 py-4">
+        <div class="title-main text-center mx-auto mb-md-5 mb-4"
+            style="max-width:500px;">
+            <p class="text-uppercase">Our News</p>
+            <h3 class="title-style">Latest <span>Blog</span> Posts</h3>
+        </div>
+        
+        <div class="row justify-content-center">
+            {% for b in blog %}
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-card-single">
+                    <div class="grids5-info">
+                        <a href="#blog"><img src="{{ b.imageURL }}"
+                                alt="" /></a>
+                        <div class="blog-info">
+                            <h4><a href="{% url 'blog_details' b.id %}">{{ b.heading }}</a>
+                            </h4>
+                            <p>{{ b.description }}</p>
+                            <div
+                                class="d-flex align-items-center justify-content-between mt-4">
+                                <a class="d-flex align-items-center"
+                                    href="#blog" title="23k followers">
+                                    <img class="img-fluid"
+                                        src="{{ b.admin_imageURL }}"
+                                        alt="admin" style="max-width:40px">
+                                    <span class="small ms-2">{{ b.admin_name }}</span>
+                                </a>
+                                <p class="date-text"><i
+                                        class="far fa-calendar-alt me-1"></i>{{ b.date }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+
+        
+        </div>
+    </div>
+</div>
+<!-- //courses section -->
+
+
+{% endblock %}

@@ -1,0 +1,323 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- banner section <h3 class="mb-lg-4 mb-3">{{ p.name }}-->
+<section id="home" class="w3l-banner py-5">
+    {% for p in profile %}
+    <div class="banner-content">  
+        <div class="container py-4">
+            <div class="row align-items-center pt-sm-5 pt-4">
+                <div class="col-md-6">
+                    <h3 class="mb-lg-4 mb-3">{{ p.name }}
+                    </h3>
+                    <p class="banner-sub">{{ p.tag_line }}</p>
+                    <div class="d-flex align-items-center buttons-banner">
+                        <a href="{% url 'citas' %}"
+                            class="btn btn-style mt-lg-5 mt-4">{{ p.btn_txt }}</a>
+                    </div>
+                </div>
+                <div
+                    class="col-md-6 right-banner-2 text-end position-relative mt-md-0 mt-5">
+                    <div class="sub-banner-image mx-auto">
+                        <img src="{{ p.image.url }}"
+                            class="img-fluid position-relative" alt=" ">
+                    </div>
+                    <div class="banner-style-1 position-absolute">
+                        <div class="banner-style-2 position-relative">
+                            <h4>{{ p.image_caption }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+<!-- //banner section -->
+
+ <!-- stats block -->
+
+ 
+
+<section class="services-w3l-block py-5" id="features">
+    <div class="container py-md-5 py-4">
+        <div class="title-main text-center mx-auto mb-md-5 mb-4"
+            style="max-width:500px;">
+            <p class="text-uppercase">Nuestros Servicios</p>
+            <h3 class="title-style">Estamos orgullosos de asesorarlos</h3>
+        </div>     
+     
+        <div class='flex-container'>
+
+            {% for c in areas %}  
+                {% if 4 >= forloop.counter %} 
+                <div class="bod-flip-box flex-column">
+                        <div class="flip-inner">
+                            <div class="flip-front">
+                                    <img class='flip-front-image' style="position: absolute; opacity: 0.5;" src="{{ c.image.url }}" alt="">
+                                    <div class='flip-front-content fbg-overlay'>
+                                         <h4 style="font-size: 80%;">{{ c.area }}</h4>
+                                         
+                                     </div>
+                            </div>
+                            <div class="flip-back">
+                                <div class='flip-back-content'>
+                                    <h4 style="font-size: 80%;">{{ c.area }}</h4>
+                                    <p>{{ c.descripcion }}</p>
+                                     <a href="#" class="flip-btn">Leer más</a>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                 {% endif %}
+            {% endfor %}      
+        </div>
+        
+
+      
+        <div class='flex-container'>
+
+                {% for c in areas %}  
+                    {% if forloop.counter > 4 %}
+                        <div class="bod-flip-box flex-column">
+                            <div class="flip-inner">
+                                <div class="flip-front">
+                                <img class='flip-front-image' style="position: absolute; opacity: 0.5;" src="{{ c.image.url }}" alt="">
+                                <div class='flip-front-content fbg-overlay'>
+                                    
+                                        
+                                        <h4 style="font-size: 80%;">{{ c.area }}</h4>
+                            
+                                    
+                                </div>
+                                </div>
+                                <div class="flip-back">
+                                <div class='flip-back-content'>
+                                    <h4 style="font-size: 80%;">{{ c.area }}</h4>
+                                    <p>{{ c.descripcion }}</p>
+                                    <a href="#" class="flip-btn">Leer más</a>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                     {% endif %}
+                {% endfor %}
+        </div>
+    </div>         
+</section>
+               <!--       {% for stat in statistics %}
+        <div class="row text-center pt-4">
+            <div class="col-md-3 col-6">
+                <div class="counter">
+                    <img src="{% static 'images/icon-1.png' %}" alt=""
+                        class="img-fluid">
+                    <div class="timer count-title count-number mt-sm-1"
+                        data-to="{{ stat.number_one }}" data-speed="{{ stat.number_one }}"></div>
+                    <p class="count-text">{{stat.field_one}}</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="counter">
+                    <img src="{% static 'images/icon-2.png' %}" alt=""
+                        class="img-fluid">
+                    <div class="timer count-title count-number mt-3"
+                        data-to="{{ stat.number_two }}" data-speed="{{ stat.number_two }}"></div>
+                    <p class="count-text">{{ stat.field_two }}</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mt-md-0 mt-5">
+                <div class="counter">
+                    <img src="{% static 'images/icon-3.png' %}" alt=""
+                        class="img-fluid">
+                    <div class="timer count-title count-number mt-3"
+                        data-to="{{ stat.number_three }}" data-speed="{{ stat.number_three }}"></div>
+                    <p class="count-text">{{ stat.field_three }}</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mt-md-0 mt-5">
+                <div class="counter">
+                    <img src="{% static 'images/icon-4.png' %}" alt=""
+                        class="img-fluid">
+                    <div class="timer count-title count-number mt-3"
+                        data-to="{{ stat.number_four }}" data-speed="{{ stat.number_four }}"></div>
+                    <p class="count-text">{{ stat.field_four }}</p>
+                </div>
+            </div>
+            
+        </div>
+        {% endfor %}
+    </div>
+    -->
+          
+<!-- //stats block -->
+
+<!-- home 4grids block -->
+<section class="services-w3l-block py-5" id="features">
+    
+    <div class="container py-md-5 py-4">
+        <div class="title-main text-center mx-auto mb-md-5 mb-4"
+            style="max-width:500px;">
+            <p class="text-uppercase">¿POR QUÉ ELEGIRNOS?</p>
+            <h3 class="title-style">Beneficios por elegirnos</h3>
+        </div>
+        <div class="row">
+            {% for c in razones %}
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch">
+                    <div class="icon-box {{ c.class_name }}">
+                        <div class="icon">
+                        <!-- <i class="{{ c.class_name_icon }}"></i> -->
+                        <img src="{{ c.class_name_icon }}">
+                        
+                        </div>
+                        <h4 class="title"><a href="#about">{{ c.heading }}</a>
+                        </h4>
+                        <p>{{ c.description }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- home 4grids block -->
+
+<!-- home image with content block -->
+<section class="w3l-servicesblock pt-lg-5 pt-4 pb-5 mb-lg-5" id="about">
+    
+    <div class="container pb-md-5 pb-4">
+        <div class="row pb-xl-5 align-items-center">
+            {% for a in mensaje %}
+            <div
+                class="col-lg-6 position-relative home-block-3-left pb-lg-0 pb-5">
+                <div class="position-relative">
+                    <img src="{{ a.imageURL }}" alt=""
+                        class="img-fluid radius-image">
+                </div>
+                <div class="imginfo__box">
+                    <h6 class="imginfo__title">{{ a.heading_one }}</h6>
+                    <p>{{ a.description_one }} </p>
+                    <a href="https://api.whatsapp.com/send?phone=3165249761" target="_blank"><i
+                            class="fas fa-phone-alt"></i> {{ a.number }}</a>
+                </div>
+            </div>
+            <div
+                class="col-xl-5 col-lg-6 offset-xl-1 mt-lg-0 mt-5 pt-lg-0 pt-5">
+                <h3 class="title-style">{{ a.heading_two }}</h3>
+                <p class="mt-4">{{ a.description_two }}</p>
+                <ul class="mt-4 list-style-lis pt-lg-1">
+                    <li><i class="fas fa-check-circle"></i>{{ a.check_point_one }}</li>
+                    </li>
+                    <li><i class="fas fa-check-circle"></i>{{ a.check_point_two }}</li>
+                    <li><i class="fas fa-check-circle"></i>{{ a.check_point_three }}</li>
+                </ul>
+                <a href="{% url 'citas' %}" class="btn btn-style mt-5">{{ a.btn_text }}</a>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+ 
+</section>
+<section class="w3l-servicesblock pt-lg-5 pt-4 pb-5 mb-lg-5" id="about">
+    <div class="container pb-md-5 pb-4">
+        <div class="row pb-xl-5 align-items-center">
+         <br>
+         <br>
+         <br>
+         <br>
+        </div>
+    </div>
+
+</section>
+
+<!-- //home image with content block -->
+
+
+
+<!-- testimonials block  testimonios 
+<section class="w3l-index4 py-5" id="testimonials">
+    <div class="container py-md-5 py-4">
+        <div class="content-slider text-center">
+            <div class="clients-slider">
+                <div class="mask">
+                    <ul>
+
+                        {% for t in testimonial %}
+                        <li class="{{ t.class_name }}">
+                            <img src="{{ t.imageURL }}"
+                                class="img-fluid rounded-circle"
+                                alt="client image" />
+                            <blockquote class="quote"><q>
+                                {{ t.quote }}
+                                </q> </blockquote>
+                            <div class="source">- {{ t.name }}</div>
+                        </li>
+
+                        {% endfor %}
+
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+-->
+
+<!-- //testimonials block -->
+
+<!-- blog block 
+
+<div class="w3l-blog-block-5 py-5" id="blog">
+    <div class="container py-md-5 py-4">
+        <div class="title-main text-center mx-auto mb-md-5 mb-4"
+            style="max-width:500px;">
+            <p class="text-uppercase">Our News</p>
+            <h3 class="title-style">Latest <span>Blog</span> Posts</h3>
+        </div>
+        
+        <div class="row justify-content-center">
+            {% for b in blog %}
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-card-single">
+                    <div class="grids5-info">
+                        <a href="#blog"><img src="{{ b.imageURL }}"
+                                alt="" /></a>
+                        <div class="blog-info">
+                            <h4><a href="{% url 'blog_details' b.id %}">{{ b.heading }}</a>
+                            </h4>
+                            <p>{{ b.description }}</p>
+                            <div
+                                class="d-flex align-items-center justify-content-between mt-4">
+                                <a class="d-flex align-items-center"
+                                    href="#blog" title="23k followers">
+                                    <img class="img-fluid"
+                                        src="{{ b.admin_imageURL }}"
+                                        alt="admin" style="max-width:40px">
+                                    <span class="small ms-2">{{ b.admin_name }}</span>
+                                </a>
+                                <p class="date-text"><i
+                                        class="far fa-calendar-alt me-1"></i>{{ b.date }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+
+            <div class="text-center mt-sm-5 mt-4 pt-sm-0 pt-1">
+                <a class="btn btn-style btn-style-secondary mt-sm-3"
+                    href="{% url 'blog' %}">
+                    Browse more blogs</a>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+<!-- //blog block -->
+
+{% endblock %}

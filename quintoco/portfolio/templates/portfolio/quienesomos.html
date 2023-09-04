@@ -1,0 +1,177 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+ <!-- inner banner -->
+ <section class="inner-banner py-5">
+    <div class="w3l-breadcrumb py-lg-5">
+        <div class="container pt-4 pb-sm-4">
+            <h4 class="inner-text-title pt-5">Quienes Somos</h4>
+            <ul class="breadcrumbs-custom-path">
+                <li><a href="{% url 'home' %}">Inicio</a></li>
+                <li class="active"><i class="fas fa-angle-right"></i>Quienes Somos
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- //inner banner -->
+
+<!-- courses section -->
+
+<section class="w3l-servicesblock pt-lg-5 pt-4 pb-5 mb-lg-5" id="about">
+    <div class="container pb-md-5 pb-4">
+        <div class="row pb-xl-5 align-items-center">
+           
+            {% for q in quienesomos %}
+             
+            <div
+                class="col-lg-6 position-relative home-block-3-left pb-lg-0 pb-5">
+                <div class="position-relative">
+                    <img src="{{ q.imageURL }}" alt=""
+                        class="img-fluid radius-image">
+                </div>
+            </div>
+            <div
+                class="col-xl-5 col-lg-6 offset-xl-1 mt-lg-0 mt-5 pt-lg-0 pt-5">
+                <h3 class="title-style">{{ q.titulo }}</h3>
+                <p class="mt-4">{{ q.parrafo1 }}</p>
+                <p class="mt-4">{{ q.parrafo2 }}</p>
+                <p class="mt-4">{{ q.parrafo3 }}</p>
+                
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<div class="w3l-blog-block-5 py-5" id="blog">
+    <div class="container py-md-5 py-4">
+        <div class="title-main text-center mx-auto mb-md-5 mb-4"
+            style="max-width:500px;">
+            <p class="text-uppercase"></p>
+            <h3 class="title-style">NUESTRO ADN</h3>
+        </div>
+        <section class="w3l-servicesblock pt-lg-5 pt-4 pb-5 mb-lg-5" id="about">
+            <div class="container pb-md-5 pb-4">
+                <div class="row pb-xl-5 align-items-center">
+                   
+                    {% for m in mision %}
+                     
+                    <div
+                        class="col-lg-6 position-relative home-block-3-left pb-lg-0 pb-5">
+                        <div class="position-relative">
+                            <img src="{{ m.imageURL }}" alt=""
+                                class="img-fluid radius-image">
+                        </div>
+                    </div>
+                    <div
+                        class="col-xl-5 col-lg-6 offset-xl-1 mt-lg-0 mt-5 pt-lg-0 pt-5">
+                        <h3 class="title-style">{{ m.titulo }}</h3>
+                        <p class="mt-4">{{ m.parrafo1 }}</p>
+                        
+                        
+                    </div>
+        
+                    {% endfor %}
+                </div>
+                <div class="row pb-xl-5 align-items-center">
+                   
+                    {% for m in vision %}
+                     
+                    
+                    <div
+                        class="col-xl-5 col-lg-6 offset-xl-1 mt-lg-0 mt-5 pt-lg-0 pt-5">
+                        <h3 class="title-style">{{ m.titulo }}</h3>
+                        <p class="mt-4">{{ m.parrafo1 }}</p>
+                        
+                        
+                    </div>
+
+                    <div
+                        class="col-lg-6 position-relative home-block-3-left pb-lg-0 pb-5">
+                        <div class="position-relative">
+                            <img src="{{ m.imageURL }}" alt=""
+                                class="img-fluid radius-image">
+                        </div>
+                    </div>
+        
+                    {% endfor %}
+                </div>
+
+                <div class="row pb-xl-5 align-items-center">
+                   
+                    {% for m in valores %}
+                    <br><br><br>
+                    <div
+                        class="col-lg-6 position-relative home-block-3-left pb-lg-0 pb-5">
+                        <div class="position-relative">
+                            <img src="{{ m.imageURL }}" alt=""
+                                class="img-fluid radius-image">
+                        </div>
+                    </div>
+                    
+                    <div
+                        class="col-xl-5 col-lg-6 offset-xl-1 mt-lg-0 mt-5 pt-lg-0 pt-5">
+                        <h3 class="title-style">{{ m.titulo }}</h3>
+                        <p class="mt-4"></p>
+                        <ul class="mt-4 list-style-lis pt-lg-1">
+							<li><i class="fas fa-check-circle"></i>{{ m.parrafo1 }}</li>
+							<li><i class="fas fa-check-circle"></i>{{ m.parrafo2 }}</li>
+							<li><i class="fas fa-check-circle"></i>{{ m.parrafo3 }}</li>
+							<li><i class="fas fa-check-circle"></i>{{ m.parrafo4 }}</li>
+							<li><i class="fas fa-check-circle"></i>{{ m.parrafo5 }}</li>
+							<li><i class="fas fa-check-circle"></i>{{ m.parrafo6 }}</li>
+							<li><i class="fas fa-check-circle"></i>{{ m.parrafo7 }}</li>
+						  </ul>
+                        
+                    </div>
+
+                    
+        
+                    {% endfor %}
+                </div>
+
+                <div class="row pb-xl-5 align-items-center">
+                   
+                    {% for m in principios %}
+                                                          
+                    <div
+                        class="col-xl-5 col-lg-6 offset-xl-1 mt-lg-0 mt-5 pt-lg-0 pt-5">
+                        <h3 class="title-style">{{ m.titulo }}</h3>
+                        <p class="mt-4"></p>
+                        <ul class="mt-4 list-style-lis pt-lg-1">
+							<li><i class="fas fa-check-circle"></i>{{ m.parrafo1 }}</li>
+							<li><i class="fas fa-check-circle"></i>{{ m.parrafo2 }}</li>
+							<li><i class="fas fa-check-circle"></i>{{ m.parrafo3 }}</li>
+							<li><i class="fas fa-check-circle"></i>{{ m.parrafo4 }}</li>
+							<li><i class="fas fa-check-circle"></i>{{ m.parrafo5 }}</li>
+							
+						  </ul>
+                        
+                    </div>
+
+                    <div
+                        class="col-lg-6 position-relative home-block-3-left pb-lg-0 pb-5">
+                        <div class="position-relative">
+                            <img src="{{ m.imageURL }}" alt=""
+                                class="img-fluid radius-image">
+                        </div>
+                    </div>
+        
+                    {% endfor %}
+                </div>
+
+            </div>
+        </section>
+    </div>
+</div>
+<!-- //courses section -->
+
+
+{% endblock %}
